@@ -20,7 +20,7 @@ RUN yum install -y http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-cento
     && unzip /tmp/awscli-bundle.zip -d /tmp \
     && /tmp/awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws \
     && rm -f /tmp/awscli-bundle.zip \
-    && rm -rf /tmp/awscli-bundle
+    && rm -rf /tmp/awscli-bundle \
     && mkdir -p /user/local/etc/gemrc \
       && { \
         echo 'install: --no-document'; \
