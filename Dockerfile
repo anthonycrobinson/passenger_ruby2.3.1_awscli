@@ -14,7 +14,7 @@ RUN yum install -y http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-cento
     && curl --fail -sSLo /etc/yum.repos.d/passenger.repo https://oss-binaries.phusionpassenger.com/yum/definitions/el-passenger.repo \
     && yum -y makecache fast \
     && yum -y update \
-    && yum -y install postgresql94-devel wget ImageMagick git make gcc-c++ bzip2 openssl-devel libyaml-devel python-devel unzip \
+    && yum -y install postgresql94-devel redis wget ImageMagick git make gcc-c++ bzip2 openssl-devel libyaml-devel python-devel unzip \
       readline-devel zlib-devel gdbm-devel epel-release \
     && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "/tmp/awscli-bundle.zip" \
     && unzip /tmp/awscli-bundle.zip -d /tmp \
