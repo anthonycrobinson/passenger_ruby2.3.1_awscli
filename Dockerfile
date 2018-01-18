@@ -10,12 +10,12 @@ ENV BUNDLE_PATH="$GEM_HOME" \
     BUNDLE_SILENCE_ROOT_WARNING=1 \
     BUNDLE_APP_CONFIG="$GEM_HOME"
 ENV PATH=$BUNDLE_BIN:$PATH
-RUN yum install -y http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-2.noarch.rpm \
+RUN yum install -y https://yum.postgresql.org/9.6/redhat/rhel-7-x86_64/pgdg-redhat96-9.6-3.noarch.rpm \
     && curl --fail -sSLo /etc/yum.repos.d/passenger.repo https://oss-binaries.phusionpassenger.com/yum/definitions/el-passenger.repo \
     && yum -y install epel-release \
     && yum -y makecache fast \
     && yum -y update \
-    && yum -y install postgresql94-devel redis wget ImageMagick git make gcc-c++ bzip2 openssl-devel libyaml-devel python-devel unzip \
+    && yum -y install postgresql96-devel redis wget ImageMagick git make gcc-c++ bzip2 openssl-devel libyaml-devel python-devel unzip \
       readline-devel zlib-devel gdbm-devel \
     && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "/tmp/awscli-bundle.zip" \
     && unzip /tmp/awscli-bundle.zip -d /tmp \
@@ -39,7 +39,7 @@ RUN yum install -y http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-cento
     && mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
     && chmod 777 "$GEM_HOME" "$BUNDLE_BIN" \
     && gem install bundler \
-    && bundle config build.pg --with-pg-config=/usr/pgsql-9.4/bin/pg_config \
+    && bundle config build.pg --with-pg-config=/usr/pgsql-9.6/bin/pg_config \
     && yum -y install nginx passenger passenger-devel poppler-utils \
     && yum clean all \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
